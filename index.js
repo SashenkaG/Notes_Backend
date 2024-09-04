@@ -8,11 +8,17 @@ import cors from "cors";
 dotenv.config();
 
 const app = express();
-
-app.use(cors({
-  origin: "http://localhost:3000",
-  credentials: true
-}));
+app.get("/api", (req, res) => {
+  res.send("Hello World 1123");
+});
+app.use(
+  cors({
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+    optionsSuccessStatus: 204,
+  })
+);
 
 app.use(bodyParser.json());
 
